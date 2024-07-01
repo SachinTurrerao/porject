@@ -1,0 +1,41 @@
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Page</title>
+</head>
+<body>
+    <h1>Welcome to My Website</h1>
+    <p>This is a simple HTML page.</p>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create EC2 Instance</title>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
+</head>
+<body>
+    <h1>Create an EC2 Instance</h1>
+    <button onclick="createInstance()">Create Instance</button>
+    <script>
+        AWS.config.update({region: 'us-west-2',var ec2 = new AWS.EC2();
+        function createInstance() {
+            var params = {ImageId: 'ami-0abcdef1234567890', InstanceType: 't2.micro', MinCount: 1, MaxCount: 1, KeyName: 'my-key-pair', SecurityGroupIds: ['sg-12345678'], SubnetId: 'subnet-12345678' };
+            ec2.runInstances(params, function(err, data) {
+                if (err) {
+                    console.log("Error", err);
+                } 
+                else {
+                    var instanceId = data.Instances[0].InstanceId;
+                    console.log("Created instance", instanceId);
+                    alert("Created instance: " + instanceId);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
