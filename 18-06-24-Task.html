@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake API Data Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fake API Data Table</h1>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://fakestoreapi.com/products')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector('#dataTable tbody');
+                    data.forEach(product => {
+                        const row = document.createElement('tr');
+
+                        const cellId = document.createElement('td');
+                        cellId.textContent = product.id;
+                        row.appendChild(cellId);
+
+                        const cellName = document.createElement('td');
+                        cellName.textContent = product.title;
+                        row.appendChild(cellName);
+
+                        const cellPrice = document.createElement('td');
+                        cellPrice.textContent = `$${product.price}`;
+                        row.appendChild(cellPrice);
+
+                        const cellCategory = document.createElement('td');
+                        cellCategory.textContent = product.category;
+                        row.appendChild(cellCategory);
+
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        });
+    </script>
+</body>
+</html>
