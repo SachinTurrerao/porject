@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .chat-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .chat-header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+        }
+        .messages {
+            height: 400px;
+            overflow-y: scroll;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .message {
+            background-color: greenyellow;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .message.user {
+            background-color: whitesmoke;
+            margin-left: auto;
+        }
+        .chat-footer {
+            display: flex;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+        }
+        .chat-footer input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid yellowgreen;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .chat-footer button {
+            padding: 10px 15px;
+            background-color: blue;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            margin-left: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .chat-footer button:hover {
+            background-color: blueviolet;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .content {
+            margin-left: 210px;
+            padding: 20px;
+            margin-top: 80px;
+        }
+        .content h1 {
+            color: #4CAF50;
+        }
+        .content p {
+            line-height: 1.6;
+        }
+        .footer-fixed {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="https://www.geeksforgeeks.org/courses/dsa-to-development-coding-guide">Home</a>
+        <a href="https://www.geeksforgeeks.org/data-structures/">Tutorials</a>
+        <a href="https://www.mta.ca/~rrosebru/oldcourse/263114/Dsa.pdf">References</a>
+        <a href="https://www.godaddy.com/resources/in/web-pro-in/8-basic-data-structures-every-programmer-should-know">Examples</a>
+        <a href="https://www.quora.com/How-will-you-design-a-contact-list-in-a-cell-phone-What-data-structure-will-you-use">Contact</a>
+    </div>
+    <div class="content">
+        <h1>Welcome to W3Schools</h1>
+        <p>W3Schools is optimized for learning, testing, and training. Examples might be simplified to improve reading and learning.</p>
+        <p>Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content. While using this site, you agree to have read and accepted our terms of use, cookie, and privacy policy.</p>
+        <p>W3Schools is Powered by W3.CSS. W3Schools is optimized for learning, testing, and training. Examples might be simplified to improve reading and basic understanding.</p>
+    </div>
+    <div class="footer-fixed">
+        <p>Sachin &copy; 2024 W3Schools</p>
+    </div>
+    
+    <div class="chat-container">
+        <div class="chat-header">Sachin Meet</div>
+        <div class="messages">
+            <div class="message">Hello! How are you?</div>
+            <div class="message user">I'm good, thanks! How about you?</div>
+            <div class="message">I'm doing well too. What are you up to?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Type a message...">
+            <button>Send</button>
+        </div>
+    </div>
+</body>
+</html>
