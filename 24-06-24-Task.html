@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            padding: 20px;
+            border: 5px solid green;
+            border-radius: 15px;
+            margin: 15px;
+        }
+        .content {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="content">Content Area with Rounded Border</div>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            padding: 20px;
+            border: 5px solid #000;
+            margin: 15px;
+            background-color: lightgray;
+        }
+        .dashed-box {
+            border-style: dashed;
+            background-color: lightblue;
+        }
+        .rounded-box {
+            border-radius: 15px;
+            background-color: lightcoral;
+        }
+        .shadow-box {
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            background-color: lightgreen;
+        }
+        .margin-box {
+            margin: 50px 100px;
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Box Model Inspection Examples</h1>
+    <p>Use your browser developer tools to inspect the box models of the following elements:</p>
+    <h2>Example 1: Simple Box Model</h2>
+    <div class="box">Content Area</div>
+    <h2>Example 2: Dashed Border</h2>
+    <div class="box dashed-box">Content Area with Dashed Border</div>
+    <h2>Example 3: Rounded Border</h2>
+    <div class="box rounded-box">Content Area with Rounded Border</div>
+    <h2>Example 4: Box Shadow</h2>
+    <div class="box shadow-box">Content Area with Shadow</div> 
+    <h2>Example 5: Different Margins</h2>
+    <div class="box margin-box">Content Area with Different Margins</div>
+</body>
+</html>
