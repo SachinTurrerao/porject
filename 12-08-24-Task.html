@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previous Prime Number Using While Loop</title>
+</head>
+<body>
+    <h2>Previous Prime Number Finder</h2>
+    
+    <h3>Example: Previous Prime of 10</h3>
+    <p id="previous-prime"></p>
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i < num; i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+        let number = 10;
+        let previousPrime = number - 1;
+
+        while (previousPrime > 1) {
+            if (isPrime(previousPrime)) {
+                break;
+            }
+            previousPrime--;
+        }
+        document.getElementById("previous-prime").textContent = 
+            `Previous prime number before ${number} is ${previousPrime}.`;
+    </script>
+      <p id="next-prime"></p>
+      <script>
+          function isPrime(num) {
+              if (num <= 1) return false;
+              for (let i = 2; i < num; i++) {
+                  if (num % i === 0) return false;
+              }
+              return true;
+          }
+          let number = 13;
+          let nextPrime;
+  
+          for (let i = number + 1; ; i++) {
+              if (isPrime(i)) {
+                  nextPrime = i;
+                  break;
+              }
+          }
+          document.getElementById("next-prime").textContent = 
+              `Next prime number after ${number} is ${nextPrime}.`;
+      </script>
+</body>
+</html>
