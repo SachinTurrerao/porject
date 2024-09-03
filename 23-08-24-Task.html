@@ -3,119 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        .section-title {
-            font-weight: bold;
-            margin-top: 20px;
-            text-decoration: underline;
-        }
-        .resume-section {
-            margin-bottom: 15px;
-        }
-    </style>
+    <title>Resume Using DOM</title>
 </head>
 <body>
-    <h1>Resume</h1>
-    <div id="resume-container"></div>
     <script>
-        const resumeData = {
-            name: "T. Sachin",
-            title: "Software Developer",
-            contact: {
-                email: "sachinturrre2@gmail.com",
-                phone: "+91 7330893631",
-                address: "Sharstri road sadashivpet"
-            },
-            education: [
-                { degree: "B.tech. in Information technology", school: "Institute of Aeronautical Engineering", year: "2024" }
-            ],
-            skills: ["HTML", "CSS", "Python"],
-            certifications: ["Certified Cybersecurity Developer", "Certified Python Programmer"]
-        };
-
-        // Creating the resume using DOM
-        const resumeContainer = document.getElementById("resume-container");
-
-        // Name and Title
-        const nameTitle = document.createElement("h2");
-        nameTitle.textContent = `${resumeData.name} - ${resumeData.title}`;
-        resumeContainer.appendChild(nameTitle);
-        const contactSection = document.createElement("div");
-        contactSection.classList.add("resume-section");
-        contactSection.innerHTML = `
-            <p class="section-title">Contact Information</p>
-            <p>Email: ${resumeData.contact.email}</p>
-            <p>Phone: ${resumeData.contact.phone}</p>
-            <p>Address: ${resumeData.contact.address}</p>
-        `;
-        resumeContainer.appendChild(contactSection);
-        const educationSection = document.createElement("div");
-        educationSection.classList.add("resume-section");
-        educationSection.innerHTML = `<p class="section-title">Education</p>`;
-        resumeData.education.forEach(edu => {
-            const eduItem = document.createElement("p");
-            eduItem.textContent = `${edu.degree} - ${edu.school} (${edu.year})`;
-            educationSection.appendChild(eduItem);
-        });
-        resumeContainer.appendChild(educationSection);
-        const skillsSection = document.createElement("div");
-        skillsSection.classList.add("resume-section");
-        skillsSection.innerHTML = `<p class="section-title">Skills</p>`;
-        const skillsList = document.createElement("ul");
-        resumeData.skills.forEach(skill => {
-            const skillItem = document.createElement("li");
-            skillItem.textContent = skill;
-            skillsList.appendChild(skillItem);
-        });
-        skillsSection.appendChild(skillsList);
-        resumeContainer.appendChild(skillsSection);
-        const certificationsSection = document.createElement("div");
-        certificationsSection.classList.add("resume-section");
-        certificationsSection.innerHTML = `<p class="section-title">Certifications</p>`;
-        resumeData.certifications.forEach(cert => {
-            const certItem = document.createElement("p");
-            certItem.textContent = cert;
-            certificationsSection.appendChild(certItem);
-        });
-        resumeContainer.appendChild(certificationsSection);
+        let container = document.createElement("div");
+        container.style.margin = "20px";
+        container.style.fontFamily = "Arial, sans-serif";
+        let name = document.createElement("h1");
+        name.textContent = "T Sachin";
+        container.appendChild(name);
+        let contactInfo = document.createElement("p");
+        contactInfo.innerHTML = "Email: sachinturre2@gmail.com <br> Phone: +91 733-089-3631";
+        container.appendChild(contactInfo);
+        let summary = document.createElement("h2");
+        summary.textContent = "Summary";
+        container.appendChild(summary);
+        let summaryText = document.createElement("p");
+        summaryText.textContent = "Experienced in python programmimng and HTML programing";
+        container.appendChild(summaryText);
+        let education = document.createElement("h2");
+        education.textContent = "Education";
+        container.appendChild(education);
+        let educationList = document.createElement("ul");
+        let educationItem1 = document.createElement("li");
+        educationItem1.textContent = "Information Technology, Institute of Aeronautical Enginnering, 2024";
+        educationList.appendChild(educationItem1);
+        let educationItem2 = document.createElement("li");
+        educationItem2.textContent = "MPC, Sri Gayatri Jr College, 2020";
+        educationList.appendChild(educationItem2);
+        container.appendChild(educationList);
+        let skills = document.createElement("h2");
+        skills.textContent = "Skills";
+        container.appendChild(skills);
+        let skillsList = document.createElement("ul");
+        let skillItem1 = document.createElement("li");
+        skillItem1.textContent = "HTML";
+        skillsList.appendChild(skillItem1);
+        let skillItem2 = document.createElement("li");
+        skillItem2.textContent = "C Programming";
+        skillsList.appendChild(skillItem2);
+        let skillItem3 = document.createElement("li");
+        skillItem3.textContent = "Python programming";
+        skillsList.appendChild(skillItem3);
+        container.appendChild(skillsList);
+        let experience = document.createElement("h2");
+        experience.textContent = "Experience";
+        container.appendChild(experience);2
+        let experienceList = document.createElement("ul");
+        let experienceItem1 = document.createElement("li");
+        experienceItem1.textContent = " Crash Course on Python, COURSERA";
+        experienceList.appendChild(experienceItem1);
+        let experienceItem2 = document.createElement("li");
+        experienceItem2.textContent = "Java Porgramming, UDEMY";
+        experienceList.appendChild(experienceItem2);
+        container.appendChild(experienceList);
+        document.body.appendChild(container);
     </script>
-    <table id="data-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
     <script>
-        const apiUrl = "https://jsonplaceholder.typicode.com/users";
-        fetch(apiUrl)
+        let table = document.createElement("table");
+        table.style.width = "100%";
+        table.style.borderCollapse = "collapse";
+        table.style.margin = "20px 0";
+        table.style.fontFamily = "Arial, sans-serif";
+        let header = document.createElement("tr");
+        let headers = ["ID", "Title", "Price", "Category"];
+        headers.forEach(text => {
+            let th = document.createElement("th");
+            th.textContent = text;
+            th.style.border = "1px solid #ddd";
+            th.style.padding = "8px";
+            th.style.backgroundColor = "#f2f2f2";
+            header.appendChild(th);
+        });
+        table.appendChild(header);
+        fetch("https://fakestoreapi.com/products")
             .then(response => response.json())
             .then(data => {
-                const tableBody = document.querySelector("#data-table tbody");
-                data.forEach(user => {
-                    const row = document.createElement("tr");
-                    row.innerHTML = `
-                        <td>${user.id}</td>
-                        <td>${user.name}</td>
-                        <td>${user.email}</td>
-                        <td>${user.phone}</td>
-                    `;
-                    tableBody.appendChild(row);
+                data.forEach(product => {
+                    let row = document.createElement("tr");
+                    let cell1 = document.createElement("td");
+                    cell1.textContent = product.id;
+                    cell1.style.border = "1px solid #ddd";
+                    cell1.style.padding = "8px";
+                    row.appendChild(cell1);
+                    let cell2 = document.createElement("td");
+                    cell2.textContent = product.title;
+                    cell2.style.border = "1px solid #ddd";
+                    cell2.style.padding = "8px";
+                    row.appendChild(cell2);
+                    let cell3 = document.createElement("td");
+                    cell3.textContent = `$${product.price}`;
+                    cell3.style.border = "1px solid #ddd";
+                    cell3.style.padding = "8px";
+                    row.appendChild(cell3);
+                    let cell4 = document.createElement("td");
+                    cell4.textContent = product.category;
+                    cell4.style.border = "1px solid #ddd";
+                    cell4.style.padding = "8px";
+                    row.appendChild(cell4);
+                    table.appendChild(row);
                 });
-            })
-            .catch(error => console.error('Error fetching data:', error));
+            });
+        document.body.appendChild(table);
     </script>
 </body>
 </html>
