@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers from 1 to 100 with Special Rules</title>
+</head>
+<body>
+    <h2>Numbers from 1 to 100 with Special Rules</h2>
+    <p id="numbers"></p>
+    <script>
+        let output = [];
+        for (let i = 1; i <= 100; i++) {
+            if (i % 3 === 0 && i % 5 === 0) {
+                output.push("both");
+            } else if (i % 3 === 0) {
+                output.push("three");
+            } else if (i % 5 === 0) {
+                output.push("five");
+            } else {
+                output.push(i);
+            }
+        }
+        document.getElementById("numbers").textContent = output.join(", ");
+    </script>
+    <p id="prime-numbers"></p>
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+        let primes = [];
+        for (let i = 100; i <= 200; i++) {
+            if (isPrime(i)) {
+                primes.push(i);
+            }
+        }
+        document.getElementById("prime-numbers").textContent = primes.join(", ");
+    </script>
+    <p id="composite-numbers"></p>
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+        let composites = [];
+        for (let i = 1; i <= 100; i++) {
+            if (i > 1 && !isPrime(i)) {
+                composites.push(i);
+            }
+        }
+        document.getElementById("composite-numbers").textContent = composites.join(", ");
+    </script>
+</body>
+</html>
