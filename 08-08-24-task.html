@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If Condition Examples</title>
+</head>
+<body>
+    <h2>If Condition Examples</h2>
+    <h3>Example 1: Check if a Number is Positive</h3>
+    <p id="if-example1"></p>
+    <script>
+        let number1 = 10;
+        if (number1 > 0) {
+            document.getElementById("if-example1").textContent = `${number1} is a positive number.`;
+        }
+    </script>
+    <h3>Example 2: Check if a User is Logged In</h3>
+    <p id="if-example2"></p>
+    <script>
+        let isLoggedIn = true;
+        if (isLoggedIn) {
+            document.getElementById("if-example2").textContent = "User is logged in.";
+        }
+    </script>
+    <p id="nested-if-example1"></p>
+    <script>
+        let a = 5, b = 8, c = 3;
+        if (a > b) {
+            if (a > c) {
+                document.getElementById("nested-if-example1").textContent = `${a} is the largest number.`;
+            }
+        } else if (b > c) {
+            document.getElementById("nested-if-example1").textContent = `${b} is the largest number.`;
+        } else {
+            document.getElementById("nested-if-example1").textContent = `${c} is the largest number.`;
+        }
+    </script>
+
+    <h3>Example 2: Check Grade Based on Marks</h3>
+    <p id="nested-if-example2"></p>
+    <script>
+        let marks = 85;
+        if (marks >= 90) {
+            document.getElementById("nested-if-example2").textContent = "Grade: A+";
+        } else if (marks >= 80) {
+            if (marks >= 85) {
+                document.getElementById("nested-if-example2").textContent = "Grade: A";
+            } else {
+                document.getElementById("nested-if-example2").textContent = "Grade: A-";
+            }
+        } else {
+            document.getElementById("nested-if-example2").textContent = "Grade: B";
+        }
+    </script>
+</body>
+</html>
+3. Ternary Operator Examples
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ternary Operator Examples</title>
+</head>
+<body>
+    <h2>Ternary Operator Examples</h2>
+
+    <h3>Example 1: Check if a Number is Even or Odd</h3>
+    <p id="ternary-example1"></p>
+    <script>
+        let number2 = 7;
+        let result1 = (number2 % 2 === 0) ? `${number2} is even.` : `${number2} is odd.`;
+        document.getElementById("ternary-example1").textContent = result1;
+    </script>
+
+    <h3>Example 2: Check if a Person is an Adult</h3>
+    <p id="ternary-example2"></p>
+    <script>
+        let age = 20;
+        let result2 = (age >= 18) ? "Person is an adult." : "Person is not an adult.";
+        document.getElementById("ternary-example2").textContent = result2;
+    </script>
+</body>
+</html>
