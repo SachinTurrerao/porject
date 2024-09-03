@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Patterns</title>
+    <style>
+        pre {
+            font-family: monospace;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h2>Star Pattern 1</h2>
+    <pre id="pattern1"></pre>
+
+    <h2>Star Pattern 2</h2>
+    <pre id="pattern2"></pre>
+    <script>
+        let pattern1 = "";
+        let pattern2 = "";
+        let n = 5; // Number of lines
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < n; j++) {
+                if (j === i || j === n - 1 - i) {
+                    pattern1 += "*";
+                } else {
+                    pattern1 += " ";
+                }
+                pattern1 += " ";
+            }
+            pattern1 += "\n";
+        }
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < n; j++) {
+                if (j === i || j === n - 1 - i) {
+                    pattern2 += "*";
+                } else {
+                    pattern2 += " ";
+                }
+                pattern2 += " ";
+            }
+            pattern2 += "\n";
+        }
+        document.getElementById("pattern1").textContent = pattern1;
+        document.getElementById("pattern2").textContent = pattern2;
+    </script>
+</body>
+</html>
