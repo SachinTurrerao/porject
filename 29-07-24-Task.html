@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Rotation and Mouseover Change</title>
+    <style>
+        .image-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        img {
+            width: 200px;
+            transition: transform 0.5s ease, background-image 0.5s ease;
+        }
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="image-container">
+    <img id="image" src="c:/Users/ADMIN/OneDrive/Desktop/10K Coders/Task 29-07 image sample image.jpg" alt="Sample Image">
+    <br>
+    <button onclick="rotateImage(0)">Rotate 0°</button>
+    <button onclick="rotateImage(90)">Rotate 90°</button>
+    <button onclick="rotateImage(180)">Rotate 180°</button>
+    <button onclick="rotateImage(270)">Rotate 270°</button>
+</div>
+<script>
+    function rotateImage(degrees) {
+        document.getElementById('image').style.transform = `rotate(${degrees}deg)`;
+    }
+    document.getElementById('image').addEventListener('mouseover', function() {
+        this.src = 'c:/Users/ADMIN/OneDrive/Desktop/10K Coders/Task 29-07 image sample image2.jpg'; 
+    });
+    document.getElementById('image').addEventListener('mouseout', function() {
+        this.src = 'c:/Users/ADMIN/OneDrive/Desktop/10K Coders/Task 29-07 image sample image.jpg'; 
+    });
+</script>
+</body>
+</html>
