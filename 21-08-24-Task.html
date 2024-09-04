@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Programs</title>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        input, button {
+            display: block;
+            margin-bottom: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>JavaScript Programs</h1>
+    <h2>Sum of Two Numbers</h2>
+    <input type="number" id="num1" placeholder="Enter first number" />
+    <input type="number" id="num2" placeholder="Enter second number" />
+    <button onclick="sumTwoNumbers()">Calculate Sum</button>
+    <div id="sumResult"></div>
+    <h2>Convert Minutes to Seconds</h2>
+    <input type="number" id="minutes" placeholder="Enter minutes" />
+    <button onclick="convertMinutesToSeconds()">Convert</button>
+    <div id="secondsResult"></div>
+    <h2>Increment Number by 1</h2>
+    <input type="number" id="numberToIncrement" placeholder="Enter a number" />
+    <button onclick="incrementNumber()">Increment</button>
+    <div id="incrementResult"></div>
+    <h2>Age in Days</h2>
+    <input type="number" id="age" placeholder="Enter your age" />
+    <button onclick="ageInDays()">Calculate Age in Days</button>
+    <div id="ageDaysResult"></div>
+    <h2>Power Calculation</h2>
+    <input type="number" id="voltage" placeholder="Enter voltage" />
+    <input type="number" id="current" placeholder="Enter current" />
+    <button onclick="calculatePower()">Calculate Power</button>
+    <div id="powerResult"></div>
+    <h2>Join String with "Something"</h2>
+    <input type="text" id="stringArg" placeholder="Enter a string" />
+    <button onclick="joinWithSomething()">Join with "Something"</button>
+    <div id="somethingResult"></div>
+    <h2>Check 10 or Sum is 10</h2>
+    <input type="number" id="a" placeholder="Enter first number" />
+    <input type="number" id="b" placeholder="Enter second number" />
+    <button onclick="checkTenOrSum()">Check</button>
+    <div id="tenOrSumResult"></div>
+    <h2>Compare String Lengths</h2>
+    <input type="text" id="str1" placeholder="Enter first string" />
+    <input type="text" id="str2" placeholder="Enter second string" />
+    <button onclick="compareStringLengths()">Compare Lengths</button>
+    <div id="compareResult"></div>
+
+    <!-- Greeting with Arrow Function -->
+    <h2>Greeting</h2>
+    <input type="text" id="name" placeholder="Enter your name" />
+    <button onclick="greet()">Greet</button>
+    <div id="greetingResult"></div>
+    <h2>Format as Phone Number</h2>
+    <input type="text" id="phoneArray" placeholder="Enter 10 digits (comma separated)" />
+    <button onclick="formatPhoneNumber()">Format</button>
+    <div id="phoneResult"></div>
+    <h2>Sort Strings by Length</h2>
+    <input type="text" id="stringArray" placeholder="Enter strings (comma separated)" />
+    <button onclick="sortByLength()">Sort</button>
+    <div id="sortResult"></div>
+    <h2>Find Largest Numbers in Arrays</h2>
+    <input type="text" id="nestedArrays" placeholder="Enter arrays (e.g., [[1, 2], [3, 4]])" />
+    <button onclick="findLargestNumbers()">Find Largest</button>
+    <div id="largestResult"></div>
+    <h2>Find Second Largest Number</h2>
+    <input type="text" id="numberArray" placeholder="Enter numbers (comma separated)" />
+    <button onclick="findSecondLargest()">Find Second Largest</button>
+    <div id="secondLargestResult"></div>
+    <h2>Remove Duplicates</h2>
+    <input type="text" id="dupArray" placeholder="Enter array with duplicates" />
+    <button onclick="removeDuplicates()">Remove Duplicates</button>
+    <div id="removeDupResult"></div>
+    <h2>Find Unique Number</h2>
+    <input type="text" id="singleArray" placeholder="Enter array (comma separated)" />
+    <button onclick="findUnique()">Find Unique</button>
+    <div id="uniqueResult"></div>
+    <h2>Count Character Occurrences</h2>
+    <input type="text" id="charToCount" placeholder="Enter character" />
+    <input type="text" id="stringToSearch" placeholder="Enter string" />
+    <button onclick="countCharacter()">Count</button>
+    <div id="charCountResult"></div>
+    <h2>Count Vowels</h2>
+    <input type="text" id="vowelString" placeholder="Enter a string" />
+    <button onclick="countVowels()">Count Vowels</button>
+    <div id="vowelResult"></div>
+    <h2>Reverse Case</h2>
+    <input type="text" id="caseString" placeholder="Enter a string" />
+    <button onclick="reverseCase()">Reverse Case</button>
+    <div id="caseResult"></div>
+    <h2>Multiply by 2</h2>
+    <input type="number" id="multiplyNumber" placeholder="Enter a number" />
+    <button onclick="multiplyByTwo()">Multiply</button>
+    <div id="multiplyResult"></div>
+    <h2>Determine Data Type</h2>
+    <input type="text" id="dataTypeInput" placeholder="Enter something" />
+    <button onclick="determineDataType()">Determine Type</button>
+    <div id="dataTypeResult"></div>
+    <h2>Greatest of Three Numbers</h2>
+    <input type="number" id="numA" placeholder="Enter first number" />
+    <input type="number" id="numB" placeholder="Enter second number" />
+    <input type="number" id="numC" placeholder="Enter third number" />
+    <button onclick="findGreatest()">Find Greatest</button>
+    <div id="greatestResult"></div>
+    <h2>Factorial</h2>
+    <input type="number" id="factorialInput" placeholder="Enter a number" />
+    <button onclick="calculateFactorial()">Calculate Factorial</button>
+    <div id="factorialResult"></div>
+    <h2>Arrange Numbers in Ascending Order</h2>
+    <input type="text" id="ascendArray" placeholder="Enter numbers (comma separated)" />
+    <button onclick="arrangeInAscendingOrder()">Arrange</button>
+    <div id="ascendingResult"></div>
+    <h2>Print Pattern</h2>
+    <input type="number" id="patternNumber" placeholder="Enter a number" />
+    <button onclick="printPattern()">Print Pattern</button>
+    <div id="patternResult"></div>
+    <h2>Power Calculation</h2>
+    <input type="number" id="base" placeholder="Enter base number" />
+    <input type="number" id="exponent" placeholder="Enter exponent" />
+    <button onclick="calculatePower()">Calculate Power</button>
+    <div id="powerCalcResult"></div>
+    <h2>Check Prime Number</h2>
+    <input type="number" id="primeInput" placeholder="Enter a number" />
+    <button onclick="checkPrime()">Check Prime</button>
+    <div id="primeResult"></div>
+    <h2>LCM Calculation</h2>
+    <input type="number" id="lcmNum1" placeholder="Enter first number" />
+    <input type="number" id="lcmNum2" placeholder="Enter second number" />
+    <button onclick="findLCM()">Find LCM</button>
+    <div id="lcmResult"></div>
+    <h2>Display Characters A-Z</h2>
+    <button onclick="displayCharacters()">Display</button>
+    <div id="charactersResult"></div>
+    <h2>Find Missing Number</h2>
+    <input type="text" id="missingArray" placeholder="Enter array (comma separated)" />
+    <button onclick="findMissing()">Find Missing</button>
+    <div id="missingResult"></div>
+    <h2>Count Vowels and Consonants</h2>
+    <input type="text" id="vowelConsonantString" placeholder="Enter a string" />
+    <button onclick="countVowelsAndConsonants()">Count</button>
+    <div id="vowelConsonantResult"></div>
+    <h2>Insert Element at Specific Index</h2>
+    <input type="text" id="insertArray" placeholder="Enter array (comma separated)" />
+    <input type="number" id="insertIndex" placeholder="Enter index to insert" />
+    <input type="number" id="elementToInsert" placeholder="Enter element to insert" />
+    <button onclick="insertAtIndex()">Insert</button>
+    <div id="insertResult"></div>    <h2>Reverse a Number</h2>
+    <input type="number" id="reverseInput" placeholder="Enter a number" />
+    <button onclick="reverseNumber()">Reverse</button>
+    <div id="reverseResult"></div>
+    <h2>Count Occurrence of Number</h2>
+    <input type="text" id="occurrenceArray" placeholder="Enter array (comma separated)" />
+    <input type="number" id="numberToFind" placeholder="Enter number to find" />
+    <button onclick="countOccurrence()">Count</button>
+    <div id="occurrenceResult"></div>
+</div>
+<script>
+    function sumTwoNumbers() {
+        let num1 = parseFloat(document.getElementById('num1').value);
+        let num2 = parseFloat(document.getElementById('num2').value);
+        document.getElementById('sumResult').innerText = `Sum: ${num1 + num2}`;
+    }
+    function convertMinutesToSeconds() {
+        let minutes = parseFloat(document.getElementById('minutes').value);
+        document.getElementById('secondsResult').innerText = `Seconds: ${minutes * 60}`;
+    }
+    function incrementNumber() {
+        let number = parseInt(document.getElementById('numberToIncrement').value);
+        document.getElementById('incrementResult').innerText = `Incremented Number: ${number + 1}`;
+    }
+    function ageInDays() {
+        let age = parseInt(document.getElementById('age').value);
+        document.getElementById('ageDaysResult').innerText = `Age in Days: ${age * 365}`;
+    }
+    function calculatePower() {
+        let voltage = parseFloat(document.getElementById('voltage').value);
+        let current = parseFloat(document.getElementById('current').value);
+        document.getElementById('powerResult').innerText = `Power: ${voltage * current} watts`;
+    }
+    function joinWithSomething() {
+        let stringArg = document.getElementById('stringArg').value;
+        document.getElementById('somethingResult').innerText = `Result: something ${stringArg}`;
+    }
+    function checkTenOrSum() {
+        let a = parseInt(document.getElementById('a').value);
+        let b = parseInt(document.getElementById('b').value);
+        document.getElementById('tenOrSumResult').innerText = (a === 10 || b === 10 || (a + b) === 10) ? "True" : "False";
+    }
+    function compareStringLengths() {
+        let str1 = document.getElementById('str1').value;
+        let str2 = document.getElementById('str2').value;
+        document.getElementById('compareResult').innerText = str1.length === str2.length ? "True" : "False";
+    }
+    const greet = () => {
+        let name = document.getElementById('name').value;
+        document.getElementById('greetingResult').innerText = `Hello, ${name}!`;
+    }
+    function formatPhoneNumber() {
+        let phoneArray = document.getElementById('phoneArray').value.split(',').map(Number);
+        let formattedPhone = `(${phoneArray.slice(0, 3).join('')}) ${phoneArray.slice(3, 6).join('')}-${phoneArray.slice(6).join('')}`;
+        document.getElementById('phoneResult').innerText = `Phone: ${formattedPhone}`;
+    }
+    function sortByLength() {
+        let stringArray = document.getElementById('stringArray').value.split(',').map(str => str.trim());
+        let sortedArray = stringArray.sort((a, b) => a.length - b.length);
+        document.getElementById('sortResult').innerText = `Sorted: ${sortedArray.join(', ')}`;
+    }
+    function findLargestNumbers() {
+        let nestedArrays = JSON.parse(document.getElementById('nestedArrays').value);
+        let largestNumbers = nestedArrays.map(arr => Math.max(...arr));
+        document.getElementById('largestResult').innerText = `Largest Numbers: ${largestNumbers.join(', ')}`;
+    }
+    function findSecondLargest() {
+        let numberArray = document.getElementById('numberArray').value.split(',').map(Number);
+        let sortedArray = numberArray.sort((a, b) => b - a);
+        document.getElementById('secondLargestResult').innerText = `Second Largest: ${sortedArray[1]}`;
+    }
+    function removeDuplicates() {
+        let dupArray = document.getElementById('dupArray').value.split(',');
+        let uniqueArray = [...new Set(dupArray)];
+        document.getElementById('removeDupResult').innerText = `Unique Array: ${uniqueArray.join(', ')}`;
+    }
+    function findUnique() {
+        let singleArray = document.getElementById('singleArray').value.split(',').map(Number);
+        let unique = singleArray.find(num => singleArray.filter(x => x === num).length === 1);
+        document.getElementById('uniqueResult').innerText = `Unique Number: ${unique}`;
+    }
+    function countCharacter() {
+        let charToCount = document.getElementById('charToCount').value;
+        let stringToSearch = document.getElementById('stringToSearch').value;
+        let count = stringToSearch.split(charToCount).length - 1;
+        document.getElementById('charCountResult').innerText = `Character Count: ${count}`;
+    }
+    function countVowels() {
+        let vowelString = document.getElementById('vowelString').value;
+        let vowels = vowelString.match(/[aeiou]/gi);
+        document.getElementById('vowelResult').innerText = `Vowel Count: ${vowels ? vowels.length : 0}`;
+    }
+    function reverseCase() {
+        let caseString = document.getElementById('caseString').value;
+        let reversedCase = caseString.split('').map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join('');
+        document.getElementById('caseResult').innerText = `Reversed Case: ${reversedCase}`;
+    }
+    function multiplyByTwo() {
+        let n = parseInt(document.getElementById('multiplyNumber').value);
+        let result = Array.from({ length: n }, (_, i) => (i + 1) * 2).join(' ');
+        document.getElementById('multiplyResult').innerText = `Multiples of 2: ${result}`;
+    }
+    function determineDataType() {
+        let input = document.getElementById('dataTypeInput').value;
+        let type = isNaN(input) ? 'String' : 'Integer';
+        document.getElementById('dataTypeResult').innerText = `Type: ${type}`;
+    }
+    function findGreatest() {
+        let numA = parseInt(document.getElementById('numA').value);
+        let numB = parseInt(document.getElementById('numB').value);
+        let numC = parseInt(document.getElementById('numC').value);
+        let greatest = numA > numB && numA > numC ? numA : numB > numC ? numB : numC;
+        document.getElementById('greatestResult').innerText = `Greatest: ${greatest}`;
+    }
+    function calculateFactorial() {
+        let n = parseInt(document.getElementById('factorialInput').value);
+        let factorial = 1;
+        for (let i = 1; i <= n; i++) {
+            factorial *= i;
+        }
+        document.getElementById('factorialResult').innerText = `Factorial: ${factorial}`;
+    }
+    function arrangeInAscending() {
+        let unsortedArray = document.getElementById('unsortedArray').value.split(',').map(Number);
+        for (let i = 0; i < unsortedArray.length; i++) {
+            for (let j = i + 1; j < unsortedArray.length; j++) {
+                if (unsortedArray[i] > unsortedArray[j]) {
+                    [unsortedArray[i], unsortedArray[j]] = [unsortedArray[j], unsortedArray[i]];
+                }
+            }
+        }
+        document.getElementById('ascendingResult').innerText = `Sorted Array: ${unsortedArray.join(', ')}`;
+    }
+    function printPattern() {
+        let lines = parseInt(document.getElementById('patternLines').value);
+        let pattern = '';
+        for (let i = 1; i <= lines; i++) {
+            pattern += Array.from({ length: i }, (_, j) => j + 1).join(' ') + '\n';
+        }
+        document.getElementById('patternResult').innerText = pattern.trim();
+    }
+    function calculatePowerNumber() {
+        let n = parseInt(document.getElementById('base').value);
+        let p = parseInt(document.getElementById('exponent').value);
+        let power = 1;
+        for (let i = 0; i < p; i++) {
+            power *= n;
+        }
+        document.getElementById('powerNumberResult').innerText = `Result: ${n}^${p} = ${power}`;
+    }
+    function checkPrime() {
+        let numToCheck = parseInt(document.getElementById('primeInput').value);
+        let isPrime = true;
+        if (numToCheck < 2) isPrime = false;
+        for (let i = 2; i <= Math.sqrt(numToCheck); i++) {
+            if (numToCheck % i === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        document.getElementById('primeResult').innerText = isPrime ? `${numToCheck} is a prime number.` : `${numToCheck} is not a prime number.`;
+    }
+    function findLCM() {
+        let num1 = parseInt(document.getElementById('lcmNum1').value);
+        let num2 = parseInt(document.getElementById('lcmNum2').value);
+        let max = num1 > num2 ? num1 : num2;
+        while (true) {
+            if (max % num1 === 0 && max % num2 === 0) {
+                document.getElementById('lcmResult').innerText = `LCM: ${max}`;
+                break;
+            }
+            max++;
+        }
+    }
+    function displayCharacters() {
+        let result = '';
+        for (let i = 0; i < 26; i++) {
+            result += String.fromCharCode(65 + i) + (i + 1) + ' ';
+        }
+        document.getElementById('charactersResult').innerText = result.trim();
+    }
+    function findMissing() {
+        let array = document.getElementById('missingArray').value.split(',').map(Number);
+        let n = array.length + 1;
+        let total = (n * (n + 1)) / 2;
+        let sum = array.reduce((a, b) => a + b, 0);
+        document.getElementById('missingResult').innerText = `Missing Number: ${total - sum}`;
+    }
+    function countVowelsAndConsonants() {
+        let inputString = document.getElementById('vowelConsonantString').value;
+        let vowels = inputString.match(/[aeiou]/gi) || [];
+        let consonants = inputString.match(/[^aeiou\s\d]/gi) || [];
+        document.getElementById('vowelConsonantResult').innerText = `${vowels.length} vowels and ${consonants.length} consonants.`;
+    }
+    function insertAtIndex() {
+        let array = document.getElementById('insertArray').value.split(',').map(Number);
+        let index = parseInt(document.getElementById('insertIndex').value);
+        let element = parseInt(document.getElementById('elementToInsert').value);
+        array.splice(index, 0, element);
+        document.getElementById('insertResult').innerText = `Updated Array: ${array.join(', ')}`;
+    }
+    function reverseNumber() {
+        let number = parseInt(document.getElementById('reverseInput').value);
+        let reversed = parseInt(number.toString().split('').reverse().join(''));
+        document.getElementById('reverseResult').innerText = `Reversed Number: ${reversed}`;
+    }
+    function countOccurrence() {
+        let array = document.getElementById('occurrenceArray').value.split(',').map(Number);
+        let numberToFind = parseInt(document.getElementById('numberToFind').value);
+        let count = array.filter(num => num === numberToFind).length;
+        document.getElementById('occurrenceResult').innerText = `${numberToFind} is present ${count} times.`;
+    }
+</script>
+</body>
+</html>
