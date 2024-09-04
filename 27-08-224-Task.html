@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Middle Element in Square Matrix</title>
+</head>
+<body>
+    <h1>Middle Element in Square Matrix</h1>
+    <p id="output"></p>
+    <script>
+        const matrix = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ];
+        function findMiddleElement(matrix) {
+            const n = matrix.length;
+            const middleIndex = Math.floor(n / 2);
+            return matrix[middleIndex][middleIndex];
+        }
+        const middleElement = findMiddleElement(matrix);
+        document.getElementById("output").innerText = "The middle element is: " + middleElement;
+    </script>
+</body>
+</html>
