@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Digit Printer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="button"] {
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #7b45a0;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+<h1>Prime Digit Printer</h1>
+<p>Enter a number and see which digits are prime!</p>
+<input type="text" id="userNumber" placeholder="Enter a number">
+<input type="button" value="Check Primes" onclick="checkPrimes()">
+<div class="output" id="output"></div>
+<script>
+    function isPrime(num) {
+        if (num <= 1) 
+        return false;
+        if (num <= 3) 
+        return true;
+        if (num % 2 === 0 || num % 3 === 0) 
+        return false;
+        for (let i = 5; i * i <= num; i += 6) {
+            if (num % i === 0 || num % (i + 2) === 0) 
+            return false;
+        }
+        return true;
+    }
+    function checkPrimes() {
+        let userInput = document.getElementById('userNumber').value;
+        let outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = "";  
+        for (let digit of userInput) {
+            let num = parseInt(digit);
+            if (isPrime(num)) {
+                outputDiv.innerHTML += `${num} `;
+                for (let i = 0; i < num; i++) {
+                    outputDiv.innerHTML += '"prime" ';
+                }
+            } 
+            else {
+                outputDiv.innerHTML += `${num} `;
+            }
+        }
+    }
+</script>
+</body>
+</html>
