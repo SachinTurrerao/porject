@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Processing</title>
+</head>
+<body>
+    <h2>Print Every Second Character</h2>
+    <input type="text" id="inputString1" placeholder="Enter a string">
+    <button onclick="printEverySecondCharacter()">Print Second Characters</button>
+    <p id="output1"></p>
+    <h2>Print Vowels at Even Indexes</h2>
+    <input type="text" id="inputString2" placeholder="Enter a string">
+    <button onclick="printVowelsAtEvenIndexes()">Print Vowels</button>
+    <p id="output2"></p>
+    <script>
+        function printEverySecondCharacter() {
+            let str = document.getElementById("inputString1").value;
+            let result = "";
+            for (let i = 1; i < str.length; i += 2) {
+                result += str[i] + " ";
+            }
+            document.getElementById("output1").innerText = result.trim();
+        }
+        function printVowelsAtEvenIndexes() {
+            let str = document.getElementById("inputString2").value;
+            let vowels = "aeiouAEIOU";
+            let result = "";
+            
+            for (let i = 0; i < str.length; i += 2) {
+                if (vowels.includes(str[i])) {
+                    result += str[i] + " ";
+                }
+            }
+            if (result.length > 0) {
+                document.getElementById("output2").innerText = result.trim();
+            } 
+            else {
+                document.getElementById("output2").innerText = "No vowels at even indexes";
+            }
+        }
+    </script>
+     <p id="output"></p>
+     <script>
+         function removeAtSymbol() {
+             let input = document.getElementById("inputString").value;
+             let result = "";
+             for (let i = 0; i < input.length; i++) {
+                 if (input[i] !== '@') {
+                     result += input[i];  // Add character to result if it's not '@'
+                 }
+             }
+             document.getElementById("output").innerText = result;
+         }
+     </script>
+</body>
+</html>
