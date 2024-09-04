@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Printing</title>
+    <style>
+        pre {
+            font-family: monospace;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h2>Pattern 1</h2>
+    <pre id="pattern1"></pre>
+    <h2>Pattern 2</h2>
+    <pre id="pattern2"></pre>
+    <script>
+        function printPattern1() {
+            let pattern = '';
+            let n = 5;
+            for (let i = 0; i < n; i++) {
+                pattern += ' '.repeat(i) + '* '.repeat(n - i).trim() + '\n';
+            }
+            for (let i = 1; i < n; i++) {
+                pattern += ' '.repeat(n - i - 1) + '* '.repeat(i + 1).trim() + '\n';
+            }
+            document.getElementById('pattern1').textContent = pattern;
+        }
+        function printPattern2() {
+            let pattern = '';
+            let n = 5;
+            for (let i = 1; i <= n; i++) {
+                pattern += '* '.repeat(i).trim() + '\n';
+            }
+            for (let i = n - 1; i >= 1; i--) {
+                pattern += '* '.repeat(i).trim() + '\n';
+            }
+            document.getElementById('pattern2').textContent = pattern;
+        }
+        printPattern1();
+        printPattern2();
+    </script>
+</body>
+</html>
