@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Eligibility and Fake Store API</title>
+</head>
+<body>
+    <h1>Voter Eligibility and Fake Store API</h1>
+    <h2>Voter Eligibility</h2>
+    <p id="eligible-voters"></p>
+    <h2>Fake Store API</h2>
+    <p id="average-price"></p>
+    <h3>Category-wise Data:</h3>
+    <p id="category-wise-data"></p>
+    <script>
+        const voters = [
+            { name: "Alice", age: 22 },
+            { name: "Bob", age: 17 },
+            { name: "Charlie", age: 19 },
+            { name: "David", age: 25 },
+            { name: "Eve", age: 16 }
+        ];
+        const eligibleVoters = voters.filter(voter => voter.age >= 18);
+        document.getElementById("eligible-voters").innerText = 
+            "Eligible Voters: " + JSON.stringify(eligibleVoters);
+        const fakeStoreData = [
+            { category: "men's clothing", price: 29.99 },
+            { category: "women's clothing", price: 49.99 },
+            { category: "jewelery", price: 19.99 },
+            { category: "electronics", price: 199.99 },
+            { category: "women's clothing", price: 39.99 },
+            { category: "men's clothing", price: 25.99 },
+            { category: "jewelery", price: 29.99 }
+        ];
+        const total = fakeStoreData.reduce((sum, item) => sum + item.price, 0);
+        const averagePrice = (total / fakeStoreData.length).toFixed(2);
+        document.getElementById("average-price").innerText = 
+            "Average Price: $" + averagePrice;
+        const categories = {};
+        fakeStoreData.forEach(item => {
+            if (!categories[item.category]) {
+                categories[item.category] = [];
+            }
+            categories[item.category].push(item);
+        });
+        document.getElementById("category-wise-data").innerText = 
+            "Category-wise Data: " + JSON.stringify(categories, null, 2);
+    </script>
+</body>
+</html>
