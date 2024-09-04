@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Collaboration Practice</h1>
+    <p>This is the main branch.</p>
+    <h1>Alice's Page</h1>
+    <p>This is a page created by Alice.</p>
+    <h1>Bob's Page</h1>
+    <p>This is a page created by Bob.</p>
+    <h1>Charlie's Page</h1>
+    <p>This is a page created by Charlie.</p>
+    <h2>Remove '@' from String</h2>
+    <input type="text" id="inputString" placeholder="Enter a string with @ characters">
+    <button onclick="removeAtSymbol()">Remove '@'</button>
+    <p id="output"></p>
+    <script>
+        function removeAtSymbol() {
+            let input = document.getElementById("inputString").value;
+            let result = "";
+            for (let i = 0; i < input.length; i++) {
+                if (input[i] !== '@') {
+                    result += input[i];  
+                }
+            }
+            document.getElementById("output").innerText = result;
+        }
+    </script>
+</body>
+</html>
