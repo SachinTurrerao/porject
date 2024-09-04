@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Programs</title>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        input, button {
+            display: block;
+            margin-bottom: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>JavaScript Programs</h1>
+    <h2>Sum of Numbers</h2>
+    <input type="number" id="sumInput" placeholder="Enter a number" />
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <div id="sumResult"></div>
+    <h2>Countdown</h2>
+    <input type="number" id="countdownInput" placeholder="Enter a number" />
+    <button onclick="startCountdown()">Start Countdown</button>
+    <div id="countdownResult"></div>
+    <h2>Multiplication Table</h2>
+    <input type="number" id="multInput" placeholder="Enter a number" />
+    <button onclick="generateTable()">Generate Table</button>
+    <div id="multResult"></div>
+    <h2>Even Numbers between 1 and 20</h2>
+    <button onclick="printEvenNumbers()">Print Even Numbers</button>
+    <div id="evenResult"></div>
+    <h2>Grade Calculator</h2>
+    <input type="number" id="scoreInput" placeholder="Enter score (0-100)" />
+    <button onclick="calculateGrade()">Calculate Grade</button>
+    <div id="gradeResult"></div>
+    <h2>Day of the Week</h2>
+    <input type="number" id="dayInput" placeholder="Enter a number (1-7)" />
+    <button onclick="getDayOfWeek()">Get Day</button>
+    <div id="dayResult"></div>
+    <h2>Even or Odd</h2>
+    <input type="number" id="evenOddInput" placeholder="Enter a number" />
+    <button onclick="checkEvenOdd()">Check Even or Odd</button>
+    <div id="evenOddResult"></div>
+    <h2>Temperature Converter</h2>
+    <input type="number" id="tempInput" placeholder="Enter temperature" />
+    <select id="tempType">
+        <option value="C">Celsius to Fahrenheit</option>
+        <option value="F">Fahrenheit to Celsius</option>
+    </select>
+    <button onclick="convertTemperature()">Convert Temperature</button>
+    <div id="tempResult"></div>
+    <h2>Season Determiner</h2>
+    <input type="number" id="monthInput" placeholder="Enter month (1-12)" />
+    <button onclick="determineSeason()">Determine Season</button>
+    <div id="seasonResult"></div>
+</div>
+<script>
+    function calculateSum() {
+        const n = parseInt(document.getElementById('sumInput').value);
+        let sum = 0;
+        for (let i = 1; i <= n; i++) {
+            sum += i;
+        }
+        document.getElementById('sumResult').innerText = `Sum of numbers from 1 to ${n} is ${sum}.`;
+    }
+    function startCountdown() {
+        const n = parseInt(document.getElementById('countdownInput').value);
+        let countdown = '';
+        for (let i = n; i >= 1; i--) {
+            countdown += i + ' ';
+        }
+        document.getElementById('countdownResult').innerText = `Countdown: ${countdown}`;
+    }
+    function generateTable() {
+        const num = parseInt(document.getElementById('multInput').value);
+        let table = '';
+        for (let i = 1; i <= 10; i++) {
+            table += `${num} x ${i} = ${num * i}<br>`;
+        }
+        document.getElementById('multResult').innerHTML = `Multiplication Table:<br>${table}`;
+    }
+    function printEvenNumbers() {
+        let evenNumbers = '';
+        for (let i = 1; i <= 20; i++) {
+            if (i % 2 === 0) {
+                evenNumbers += i + ' ';
+            }
+        }
+        document.getElementById('evenResult').innerText = `Even numbers between 1 and 20: ${evenNumbers}`;
+    }
+    function calculateGrade() {
+        const score = parseInt(document.getElementById('scoreInput').value);
+        let grade = '';
+        if (score >= 90) grade = 'A';
+        else if (score >= 80) grade = 'B';
+        else if (score >= 70) grade = 'C';
+        else if (score >= 60) grade = 'D';
+        else grade = 'F';
+        document.getElementById('gradeResult').innerText = `Grade: ${grade}`;
+    }
+    function getDayOfWeek() {
+        const day = parseInt(document.getElementById('dayInput').value);
+        let dayName = '';
+        switch (day) {
+            case 1: dayName = 'Sunday'; break;
+            case 2: dayName = 'Monday'; break;
+            case 3: dayName = 'Tuesday'; break;
+            case 4: dayName = 'Wednesday'; break;
+            case 5: dayName = 'Thursday'; break;
+            case 6: dayName = 'Friday'; break;
+            case 7: dayName = 'Saturday'; break;
+            default: dayName = 'Invalid day number';
+        }
+        document.getElementById('dayResult').innerText = `Day of the week: ${dayName}`;
+    }
+    function checkEvenOdd() {
+        const num = parseInt(document.getElementById('evenOddInput').value);
+        const result = num % 2 === 0 ? 'Even' : 'Odd';
+        document.getElementById('evenOddResult').innerText = `The number is ${result}.`;
+    }
+    function convertTemperature() {
+        const temp = parseFloat(document.getElementById('tempInput').value);
+        const type = document.getElementById('tempType').value;
+        let result = '';
+        if (type === 'C') {
+            result = (temp * 9/5) + 32;
+            document.getElementById('tempResult').innerText = `${temp}°C is equal to ${result.toFixed(2)}°F.`;
+        } else if (type === 'F') {
+            result = (temp - 32) * 5/9;
+            document.getElementById('tempResult').innerText = `${temp}°F is equal to ${result.toFixed(2)}°C.`;
+        }
+    }
+    function determineSeason() {
+        const month = parseInt(document.getElementById('monthInput').value);
+        let season = '';
+        if (month === 12 || month === 1 || month === 2) season = 'Winter';
+        else if (month >= 3 && month <= 5) season = 'Spring';
+        else if (month >= 6 && month <= 8) season = 'Summer';
+        else if (month >= 9 && month <= 11) season = 'Fall';
+        else season = 'Invalid month number';
+        document.getElementById('seasonResult').innerText = `Season: ${season}`;
+    }
+</script>
+</body>
+</html>
