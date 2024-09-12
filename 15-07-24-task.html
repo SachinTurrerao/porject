@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Solving Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+        }
+        .problem {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .problem h3 {
+            margin: 0;
+        }
+        .options {
+            list-style: none;
+            padding-left: 0;
+        }
+        .options li {
+            margin: 5px 0;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Math and Logic Problem Solving Quiz</h1>
+    <div class="problem" id="problem1">
+        <h3>1. The cost of a piece of diamond varies with the square of its weight. A diamond of Rs. 5184 value is cut into 3 pieces whose weights are in the ratio 1 : 2 : 3. Find the loss involved in the cutting.</h3>
+        <ul class="options">
+            <li><input type="radio" name="q1" value="Rs. 3068"> Rs. 3068</li>
+            <li><input type="radio" name="q1" value="Rs. 3088"> Rs. 3088</li>
+            <li><input type="radio" name="q1" value="Rs. 3175"> Rs. 3175</li>
+            <li><input type="radio" name="q1" value="Rs. 3168"> Rs. 3168</li>
+        </ul>
+    </div>
+    <div class="problem" id="problem2">
+        <h3>2. A merchant buys an article for Rs. 27 and sells it at a profit of 10%. The selling price of the article is:</h3>
+        <ul class="options">
+            <li><input type="radio" name="q2" value="Rs. 29.70"> Rs. 29.70</li>
+            <li><input type="radio" name="q2" value="Rs. 30"> Rs. 30</li>
+            <li><input type="radio" name="q2" value="Rs. 37"> Rs. 37</li>
+            <li><input type="radio" name="q2" value="Rs. 32"> Rs. 32</li>
+        </ul>
+    </div>
+    <div class="problem" id="problem3">
+        <h3>3. By selling an article for Rs. 960 a man incurs a loss of 4%; what was the cost price?</h3>
+        <ul class="options">
+            <li><input type="radio" name="q3" value="Rs. 1000"> Rs. 1000</li>
+            <li><input type="radio" name="q3" value="Rs. 1150"> Rs. 1150</li>
+            <li><input type="radio" name="q3" value="Rs. 1200"> Rs. 1200</li>
+        </ul>
+    </div>
+    <div class="problem" id="problem4">
+        <h3>4. In a certain code 'MISSIONS' is written as 'MSIISNOS'. How is 'ONLINE' written in that code?</h3>
+        <ul class="options">
+            <li><input type="radio" name="q4" value="OLNNIE"> OLNNIE</li>
+            <li><input type="radio" name="q4" value="ONILEN"> ONILEN</li>
+            <li><input type="radio" name="q4" value="NOILEN"> NOILEN</li>
+            <li><input type="radio" name="q4" value="LNOENI"> LNOENI</li>
+        </ul>
+    </div>
+    <div class="problem" id="problem5">
+        <h3>5. In certain code 'TIGER' is written as 'QDFHS'. How is 'FISH' written in that code?</h3>
+        <ul class="options">
+            <li><input type="radio" name="q5" value="GERH"> GERH</li>
+            <li><input type="radio" name="q5" value="GREH"> GREH</li>
+            <li><input type="radio" name="q5" value="GHRE"> GHRE</li>
+        </ul>
+    </div>
+    <button onclick="checkAnswers()">Submit Answers</button>
+    <div id="result"></div>
+    <script>
+        function checkAnswers() {
+            let score = 0;
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            if (q1 && q1.value === "Rs. 3168") {
+                score += 1;
+            }
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            if (q2 && q2.value === "Rs. 29.70") {
+                score += 1;
+            }
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            if (q3 && q3.value === "Rs. 1000") {
+                score += 1;
+            }
+            const q4 = document.querySelector('input[name="q4"]:checked');
+            if (q4 && q4.value === "OLNNIE") {
+                score += 1;
+            }
+            const q5 = document.querySelector('input[name="q5"]:checked');
+            if (q5 && q5.value === "GERH") {
+                score += 1;
+            }
+            const totalQuestions = 5;
+            const result = document.getElementById('result');
+            result.innerHTML = `You got ${score} out of ${totalQuestions} correct.`;
+        }
+    </script>
+</body>
+</html>
