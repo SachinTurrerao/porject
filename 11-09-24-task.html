@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Average and Find Least Marks</title>
+    <script>
+        function calculateAverageAndLeastSubject() {
+            let students = [
+                { name: "ramu", marks: { s1: 28, s2: 30, s3: 49 } },
+                { name: "raju", marks: { s1: 20, s2: 50, s3: 40 } },
+                { name: "raghu", marks: { s1: 35, s2: 30, s3: 47 } }
+            ];
+            students.forEach(student => {
+                let marks = student.marks;
+                let total = marks.s1 + marks.s2 + marks.s3;
+                let avg = total / 3;
+                student.avg = avg.toFixed(2); 
+            });
+            students.forEach(student => {
+                let marks = student.marks;
+                let leastSubject = Object.keys(marks).reduce((minSubj, currentSubj) => {
+                    return marks[currentSubj] < marks[minSubj] ? currentSubj : minSubj;
+                });
+                student.leastSubject = leastSubject;
+            });
+            let resultDiv = document.getElementById("result");
+            students.forEach(student => {
+                resultDiv.innerHTML += `<p>${student.name}: Average = ${student.avg}, Least Subject = ${student.leastSubject}</p>`;
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculate Average and Find Least Marks</h1>
+    <button onclick="calculateAverageAndLeastSubject()">Calculate</button>
+    <div id="result"></div>
+</body>
+</html>
