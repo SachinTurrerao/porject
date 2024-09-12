@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .toggle {
+            text-align: center;
+            margin-top: 15px;
+            color: #007bff;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="formTitle">Login</h1>
+        <div id="error" class="error"></div>
+
+        <!-- Registration Form -->
+        <div id="registerForm" style="display: none;">
+            <input type="text" id="registerUsername" placeholder="Enter Username" required>
+            <input type="email" id="registerEmail" placeholder="Enter Email" required>
+            <input type="password" id="registerPassword" placeholder="Enter Password" required>
+            <button onclick="register()">Register</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm">
+            <input type="text" id="loginUsername" placeholder="Enter Username" required>
+            <input type="password" id="loginPassword" placeholder="Enter Password" required>
+            <button onclick="login()">Login</button>
+        </div>
+
+        <div class="toggle" onclick="toggleForm()">Don't have an account? Register here.</div>
+    </div>
+    <script>
+        let isLogin = true;
+        function toggleForm() {
+            const loginForm = document.getElementById("loginForm");
+            const registerForm = document.getElementById("registerForm");
+            const formTitle = document.getElementById("formTitle");
+            const toggleText = document.querySelector(".toggle");
+            if (isLogin) {
+                loginForm.style.display = "none";
+                registerForm.style.display = "block";
+                formTitle.innerText = "Register";
+                toggleText.innerText = "Already have an account? Login here.";
+            } 
+            else {
+                loginForm.style.display = "block";
+                registerForm.style.display = "none";
+                formTitle.innerText = "Login";
+                toggleText.innerText = "Don't have an account? Register here.";
+            }
+            isLogin = !isLogin;
+        }
+        function register() {
+            const username = document.getElementById("registerUsername").value;
+            const email = document.getElementById("registerEmail").value;
+            const password = document.getElementById("registerPassword").value;
+            const error = document.getElementById("error");
+            if (!username || !email || !password) {
+                error.innerText = "All fields are required.";
+                return;
+            }
+            const user = { username, email, password };
+            localStorage.setItem(username, JSON.stringify(user));
+            error.innerText = "Registration successful! You can now log in.";
+        }
+        function login() {
+            const username = document.getElementById("loginUsername").value;
+            const password = document.getElementById("loginPassword").value;
+            const error = document.getElementById("error");
+            if (!username || !password) {
+                error.innerText = "Both fields are required.";
+                return;
+            }
+            const storedUser = localStorage.getItem(username);
+            if (storedUser) {
+                const user = JSON.parse(storedUser);
+                if (user.password === password) {
+                    error.innerText = `Welcome, ${user.username}! Login successful.`;
+                } else {
+                    error.innerText = "Incorrect password.";
+                }
+            } 
+            else {
+                error.innerText = "User not found. Please register first.";
+            }
+        }
+    </script>
+</body>
+</html>
