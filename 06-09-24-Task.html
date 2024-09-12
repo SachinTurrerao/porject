@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patterns</title>
+    <style>
+        .pattern {
+            font-family: monospace;
+            text-align: left;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <h2>Pattern 1 (Numbers)</h2>
+    <div id="pattern1" class="pattern"></div>
+    <h2>Pattern 2 (Alphabets)</h2>
+    <div id="pattern2" class="pattern"></div>
+    <script>
+        function generatePattern1() {
+            let pattern = "";
+            let current = 1;
+            let n = 4; 
+            for (let i = 1; i <= n; i++) {
+                let row = "";
+                for (let j = 1; j <= i; j++) {
+                    while (current % 5 === 0) { 
+                        current++;
+                    }
+                    row += current + " ";
+                    current++;
+                }
+                pattern += row.trim() + "\n"; // Add new line
+            }
+            return pattern;
+        }
+        document.getElementById("pattern1").textContent = generatePattern1();
+    </script>
+
+    <!-- JavaScript for Pattern 2 (Alphabets) -->
+    <script>
+        function generatePattern2() {
+            let pattern = "";
+            let n = 4; 
+            let charCode = 97; 
+            for (let i = 0; i < n; i++) {
+                let row = " ".repeat(n - i - 1);
+                row += String.fromCharCode(charCode) + " ";
+                if (i > 0) {
+                    row += " ".repeat(i * 2 - 1) + String.fromCharCode(charCode + i);
+                }
+                pattern += row.trim() + "\n";
+            }
+            for (let i = n - 2; i >= 0; i--) {
+                let row = " ".repeat(n - i - 1);
+                row += String.fromCharCode(charCode) + " ";
+                if (i > 0) {
+                    row += " ".repeat(i * 2 - 1) + String.fromCharCode(charCode + i);
+                }
+                pattern += row.trim() + "\n";
+            }
+            return pattern;
+        }
+        document.getElementById("pattern2").textContent = generatePattern2();
+    </script>
+</body>
+</html>
