@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Display</title>
+    <style>
+        .pattern {
+            font-family: monospace;
+            text-align: center;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <h2>Pattern 1</h2>
+    <div id="pattern1" class="pattern"></div>
+
+    <h2>Pattern 2</h2>
+    <div id="pattern2" class="pattern"></div>
+
+    <script>
+        function generatePattern1() {
+            let pattern = "";
+            let n = 5; 
+            for (let i = 1; i <= n; i++) {
+                pattern += " ".repeat(n - i) + "* ".repeat(i).trim() + "\n";
+            }
+            for (let i = n - 1; i >= 1; i--) {
+                pattern += " ".repeat(n - i) + "* ".repeat(i).trim() + "\n";
+            }
+            return pattern;
+        }
+        function generatePattern2() {
+            let pattern = "";
+            let n = 5;
+            for (let i = 1; i <= n; i++) {
+                let row = " ".repeat((n - i) * 2); 
+                for (let j = 1; j <= i; j++) {
+                    row += j + " "; 
+                }
+                for (let j = i - 1; j >= 1; j--) {
+                    row += j + " "; 
+                }
+                pattern += row.trim() + "\n"; 
+            }
+            return pattern;
+        }
+        document.getElementById("pattern1").textContent = generatePattern1();
+        document.getElementById("pattern2").textContent = generatePattern2();
+    </script>
+</body>
+</html>
