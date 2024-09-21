@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bumble-like Website & MCQ Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #ffcc00;
+            padding: 15px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .profile-card {
+            background-color: white;
+            width: 300px;
+            border-radius: 10px;
+            margin: 50px auto;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .profile-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .profile-info {
+            margin-top: 10px;
+        }
+        .profile-info h2 {
+            margin: 0;
+        }
+        .actions {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .actions button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+        .actions button:hover {
+            background-color: #ffaa00;
+        }
+        .mcq-section {
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 600px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .mcq-section h2 {
+            text-align: center;
+        }
+        .mcq-section .choices label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .mcq-section button {
+            display: block;
+            width: 100%;
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .mcq-section button:hover {
+            background-color: #ffaa00;
+        }
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Bumble-like</h1>
+    </div>
+    <div class="profile-card">
+        <img src="c:\Users\ADMIN\OneDrive\Desktop\10K Coders\Task 14-09  image.jpg" alt="Profile Picture">
+        <div class="profile-info">
+            <h2>T Sachin 23</h2>
+            <p>Software Engineer</p>
+        </div>
+        <div class="actions">
+            <button onclick="swipeLeft()">❌</button>
+            <button onclick="swipeRight()">❤️</button>
+        </div>
+    </div>
+    <div class="mcq-section">
+        <h2>MCQ Validation</h2>
+        <div class="question">
+            <p>Which language is used for web development?</p>
+            <div class="choices">
+                <label><input type="radio" name="mcq" value="Python"> Python</label>
+                <label><input type="radio" name="mcq" value="JavaScript"> JavaScript</label>
+                <label><input type="radio" name="mcq" value="C++"> C++</label>
+                <label><input type="radio" name="mcq" value="Java"> Java</label>
+            </div>
+        </div>
+        <button onclick="validateAnswer()">Submit</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        function swipeLeft() {
+            alert('Swiped left');
+        }
+        function swipeRight() {
+            alert('Swiped right');
+        }
+        function validateAnswer() {
+            const choices = document.getElementsByName('mcq');
+            let selectedAnswer;
+            for (let i = 0; i < choices.length; i++) {
+                if (choices[i].checked) {
+                    selectedAnswer = choices[i].value;
+                    break;
+                }
+            }
+            const correctAnswer = "JavaScript";
+            const resultDiv = document.getElementById('result');
+            if (selectedAnswer === correctAnswer) {
+                resultDiv.innerHTML = `<p style="color: green;">Correct! JavaScript is used for web development.</p>`;
+            } else {
+                resultDiv.innerHTML = `<p style="color: red;">Wrong! The correct answer is JavaScript.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
