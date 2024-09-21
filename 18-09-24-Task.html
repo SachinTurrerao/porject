@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password & OTP Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Password & OTP Generator</h2>
+    <label for="passwordLength">Password Length:</label>
+    <input type="number" id="passwordLength" value="12" min="6" max="20">
+    <button onclick="generatePassword()">Generate Password</button>
+    <button onclick="generateOTP()">Generate OTP</button>
+    <div id="output"></div>
+</div>
+<script>
+    function generatePassword() {
+        const length = document.getElementById('passwordLength').value;
+        const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+        let password = "";
+        for (let i = 0; i < length; i++) {
+            password += charset.charAt(Math.floor(Math.random() * charset.length));
+        }
+        document.getElementById('output').innerHTML = `Generated Password: <strong>${password}</strong>`;
+    }
+    function generateOTP() {
+        let otp = Math.floor(100000 + Math.random() * 900000);  
+        document.getElementById('output').innerHTML = `Generated OTP: <strong>${otp}</strong>`;
+    }
+</script>
+</body>
+</html>
